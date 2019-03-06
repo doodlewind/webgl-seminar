@@ -1,8 +1,8 @@
 // 顶点着色器
 export const vertexShader = `
-  attribute vec4 aPos;
+  attribute vec4 pos;
   void main() {
-    gl_Position = aPos;
+    gl_Position = pos;
   }
 `
 

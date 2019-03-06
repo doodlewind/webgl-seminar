@@ -33,7 +33,7 @@ const initShader = (gl, vsSource, fsSource) => {
 export const initProgram = (gl, vsSource, fsSource) => {
   const program = initShader(gl, vsSource, fsSource)
   const attribLocations = {
-    pos: gl.getAttribLocation(program, 'aPos')
+    pos: gl.getAttribLocation(program, 'pos')
   }
 
   return { program, attribLocations }

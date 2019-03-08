@@ -1,7 +1,7 @@
-import { draw } from './draw'
-import { initBuffer } from './buffers'
-import { vertexShader, fragmentShader } from './shaders'
-import { initProgram } from './program'
+import { draw } from './draw.js'
+import { initBuffer } from './buffers.js'
+import { vertexShader, fragmentShader } from './shaders.js'
+import { initProgram } from './program.js'
 
 const gl = document.querySelector('#gl-canvas').getContext('webgl')
 

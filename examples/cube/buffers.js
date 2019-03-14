@@ -41,12 +41,12 @@ export const initBuffers = (gl) => {
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
 
   const faceColors = [
-    [1.0, 1.0, 1.0, 1.0],
-    [1.0, 0.0, 0.0, 1.0],
-    [0.0, 1.0, 0.0, 1.0],
-    [0.0, 0.0, 1.0, 1.0],
-    [1.0, 1.0, 0.0, 1.0],
-    [1.0, 0.0, 1.0, 1.0]
+    [1.0, 1.0, 1.0, 1.0], // White
+    [1.0, 0.0, 0.0, 1.0], // Red
+    [0.0, 1.0, 0.0, 1.0], // Green
+    [0.0, 0.0, 1.0, 1.0], // Blue
+    [1.0, 1.0, 0.0, 1.0], // Yellow
+    [1.0, 0.0, 1.0, 1.0] // Purple
   ]
 
   let colors = []

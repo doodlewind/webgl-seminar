@@ -1,6 +1,6 @@
-export const draw = (gl, programInfo, buffer) => {
+export const draw = (gl, programInfo, buffers) => {
   const { pos } = programInfo.attribLocations
-  gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position)
   gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0)
   gl.enableVertexAttribArray(pos)
 

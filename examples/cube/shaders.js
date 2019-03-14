@@ -7,7 +7,7 @@ uniform mat4 projection;
 
 varying lowp vec4 vColor;
 
-void main(void) {
+void main() {
   gl_Position = projection * modelView * pos;
   vColor = color;
 }
@@ -16,7 +16,7 @@ void main(void) {
 export const fragmentShader = `
 varying lowp vec4 vColor;
 
-void main(void) {
+void main() {
   gl_FragColor = vColor;
 }
 `

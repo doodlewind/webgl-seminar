@@ -1,15 +1,15 @@
 export const vertexShader = `
-attribute vec4 vertexPos;
-attribute vec4 vertexColor;
+attribute vec4 pos;
+attribute vec4 color;
 
-uniform mat4 modelViewMat;
-uniform mat4 projectionMat;
+uniform mat4 modelView;
+uniform mat4 projection;
 
 varying lowp vec4 vColor;
 
 void main(void) {
-  gl_Position = projectionMat * modelViewMat * vertexPos;
-  vColor = vertexColor;
+  gl_Position = projection * modelView * pos;
+  vColor = color;
 }
 `
 

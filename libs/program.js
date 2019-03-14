@@ -36,12 +36,12 @@ export const initProgram = (gl, vsSource, fsSource) => {
   return {
     program,
     attribLocations: {
-      vertexPos: gl.getAttribLocation(program, 'vertexPos'),
-      vertexColor: gl.getAttribLocation(program, 'vertexColor')
+      pos: gl.getAttribLocation(program, 'pos'),
+      color: gl.getAttribLocation(program, 'color')
     },
     uniformLocations: {
-      projectionMat: gl.getUniformLocation(program, 'projectionMat'),
-      modelViewMat: gl.getUniformLocation(program, 'modelViewMat')
+      projection: gl.getUniformLocation(program, 'projection'),
+      modelView: gl.getUniformLocation(program, 'modelView')
     }
   }
 }

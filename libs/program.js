@@ -32,9 +32,16 @@ const initShader = (gl, vsSource, fsSource) => {
 
 export const initProgram = (gl, vsSource, fsSource) => {
   const program = initShader(gl, vsSource, fsSource)
-  const attribLocations = {
-    pos: gl.getAttribLocation(program, 'pos')
-  }
 
-  return { program, attribLocations }
+  return {
+    program,
+    attribLocations: {
+      vertexPos: gl.getAttribLocation(program, 'vertexPos'),
+      vertexColor: gl.getAttribLocation(program, 'vertexColor')
+    },
+    uniformLocations: {
+      projectionMat: gl.getUniformLocation(program, 'projectionMat'),
+      modelViewMat: gl.getUniformLocation(program, 'modelViewMat')
+    }
+  }
 }

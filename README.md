@@ -9,8 +9,8 @@ python -m SimpleHTTPServer 10000
 ```
 
 ## 大纲
-包含以下内容：
+在 docs 目录下包含每个示例对应的注释资料。要想确认示例是如何演化的，可以使用这条命令：
 
-* `triangle` - 基础的三角形绘制，用于熟悉渲染管线。
-
-每一项均包含可执行的代码示例与 README 指南。
+``` bash
+git diff --no-index ./examples/triangle ./examples/cube
+```

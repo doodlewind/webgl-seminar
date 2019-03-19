@@ -1,4 +1,4 @@
-export const initBuffers = (gl) => {
+export const initBuffers = gl => {
   const positions = [
     0.0, 1.0,
     1.0, -1.0,

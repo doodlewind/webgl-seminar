@@ -8,8 +8,9 @@ WebGL 学习小组整理的入门资料
 python -m SimpleHTTPServer 10000
 ```
 
-在 docs 目录下包含每个示例对应的注释资料。要想确认示例是如何演化的，可以使用这条命令：
+在 docs 目录下包含每个示例对应的注释资料。要想确认示例是如何演化的，可以使用形如这样的命令：
 
 ``` bash
 git diff --no-index ./examples/triangle ./examples/cube
+git diff --no-index ./examples/cube ./examples/diffuse
 ```

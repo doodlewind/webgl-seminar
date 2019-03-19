@@ -8,7 +8,6 @@ WebGL 学习小组整理的入门资料
 python -m SimpleHTTPServer 10000
 ```
 
-## 大纲
 在 docs 目录下包含每个示例对应的注释资料。要想确认示例是如何演化的，可以使用这条命令：
 
 ``` bash

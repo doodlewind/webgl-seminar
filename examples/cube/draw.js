@@ -10,14 +10,14 @@ export const draw = (gl, programInfo, buffers) => {
   const fov = Math.PI / 6
   const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight
 
-  const projection = create()
-  perspective(projection, fov, aspect, 0.1, 100.0)
+  const projectionMat = create()
+  perspective(projectionMat, fov, aspect, 0.1, 100.0)
 
-  const modelView = create()
-  translate(modelView, modelView, [-0.0, 0.0, -20.0])
+  const modelViewMat = create()
+  translate(modelViewMat, modelViewMat, [-0.0, 0.0, -20.0])
 
   const delta = Math.PI / 4
-  rotate(modelView, modelView, delta, [1, 1, 0])
+  rotate(modelViewMat, modelViewMat, delta, [1, 1, 0])
 
   const { pos } = programInfo.attribLocations
   gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position)
@@ -32,8 +32,8 @@ export const draw = (gl, programInfo, buffers) => {
   gl.useProgram(programInfo.program)
 
   const { uniformLocations } = programInfo
-  gl.uniformMatrix4fv(uniformLocations.projection, false, projection)
-  gl.uniformMatrix4fv(uniformLocations.modelView, false, modelView)
+  gl.uniformMatrix4fv(uniformLocations.projectionMat, false, projectionMat)
+  gl.uniformMatrix4fv(uniformLocations.modelViewMat, false, modelViewMat)
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffers.indices)
   gl.drawElements(gl.TRIANGLES, 36, gl.UNSIGNED_SHORT, 0)

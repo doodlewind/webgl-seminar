@@ -11,7 +11,7 @@ const compileShader = (gl, type, source) => {
   return shader
 }
 
-const initShader = (gl, vsSource, fsSource) => {
+export const initShader = (gl, vsSource, fsSource) => {
   const vertexShader = compileShader(gl, gl.VERTEX_SHADER, vsSource)
   const fragmentShader = compileShader(gl, gl.FRAGMENT_SHADER, fsSource)
 
@@ -28,20 +28,4 @@ const initShader = (gl, vsSource, fsSource) => {
   }
 
   return shaderProgram
-}
-
-export const initProgram = (gl, vsSource, fsSource) => {
-  const program = initShader(gl, vsSource, fsSource)
-
-  return {
-    program,
-    attribLocations: {
-      pos: gl.getAttribLocation(program, 'pos'),
-      color: gl.getAttribLocation(program, 'color')
-    },
-    uniformLocations: {
-      projection: gl.getUniformLocation(program, 'projection'),
-      modelView: gl.getUniformLocation(program, 'modelView')
-    }
-  }
 }

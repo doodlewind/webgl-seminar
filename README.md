@@ -4,6 +4,8 @@ WebGL 学习小组整理的入门资料
 ## 运行示例
 示例代码均只需在项目根目录下启动静态服务器即可运行，无需构建与依赖管理：
 
+[Online Demo](https://doodlewind.github.io/webgl-seminar/examples)
+
 ``` bash
 python -m SimpleHTTPServer 10000
 ```

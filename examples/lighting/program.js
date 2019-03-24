@@ -11,7 +11,7 @@ uniform mat4 modelViewMat;
 uniform mat4 projectionMat;
 
 varying vec4 vColor;
-varying vec3 vLightDir;
+varying vec3 vLighting;
 
 void main() {
   vec3 ambientColor = vec3(0.3, 0.3, 0.3);
@@ -20,10 +20,10 @@ void main() {
 
   vec4 transformedNormal = normalMat * vec4(vertexNormal, 1.0);
 
-  float directional = max(dot(transformedNormal.xyz, diffuseDir), 0.0);
+  float diffuseFactor = max(dot(transformedNormal.xyz, diffuseDir), 0.0);
 
   vColor = color;
-  vLightDir = ambientColor + (diffuseColor * directional);
+  vLighting = ambientColor + (diffuseColor * diffuseFactor);
   gl_Position = projectionMat * modelViewMat * pos;
 }
 `
@@ -31,10 +31,10 @@ void main() {
 const fragmentShader = `
 precision highp float;
 varying vec4 vColor;
-varying vec3 vLightDir;
+varying vec3 vLighting;
 
 void main() {
-  gl_FragColor = vec4(vColor.rgb * vLightDir, 1.0);
+  gl_FragColor = vec4(vColor.rgb * vLighting, 1.0);
 }
 `
 

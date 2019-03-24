@@ -26,8 +26,21 @@ void main() {
   float diffuseFactor = max(dot(transformedNormal.xyz, diffuseDir), 0.0);
   vec3 diffuse = diffuseColor * diffuseFactor * diffuseStrength;
 
+  mat4 modelMat = modelViewMat;
+  vec3 fragPos = vec3(modelMat * pos);
+  vec3 specularLightPos = vec3(0, 0, 0);
+  vec3 specularLightDir = normalize(specularLightPos - fragPos);
+
+  float specularStrength = 0.5;
+  vec3 specularColor = vec3(1, 1, 1);
+  vec3 viewPos = vec3(0, 0, 0);
+  vec3 viewDir = normalize(viewPos - fragPos);
+  vec3 reflectDir = reflect(-specularLightDir, vec3(transformedNormal));
+  float specularFactor = pow(max(dot(viewDir, reflectDir), 0.0), 64.0);
+  vec3 specular = specularColor * specularFactor * specularStrength;
+
   vColor = color;
-  vLighting = ambient + diffuse;
+  vLighting = ambient + diffuse + specular;
   gl_Position = projectionMat * modelViewMat * pos;
 }
 `

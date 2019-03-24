@@ -15,7 +15,8 @@ WebGL 学习小组整理的入门资料
 * [绘制三角形](./examples/triangle)
 * 绘制纹理
 * [绘制立方体](./examples/cube)
-* [添加基础光照](./examples/lighting)
+* [实现基础光照](./examples/lighting)
+* [实现冯氏光照](./examples/phong)
 * 实现图像滤镜
 * 使用帧缓冲区
 
@@ -34,8 +35,14 @@ npm i -g http-server && http-server .
 一个非常有意义的事情，是去确认各个示例是如何逐渐从最基本的三角形而演化出来的。这时，你可以使用形如这样的命令：
 
 ``` bash
+# 从三角形到立方体
 git diff --no-index ./examples/triangle ./examples/cube
-git diff --no-index ./examples/cube ./examples/diffuse
+
+# 从立方体到基础光照
+git diff --no-index ./examples/cube ./examples/lighting
+
+# 从基础光照到冯氏光照
+git diff --no-index ./examples/lighting ./examples/phong
 ```
 
 我们对代码的一致性有很高的要求，故而你完全可以将这样的 diff 作为从学习 A 过渡到学习 B 的时候，没有冗余的最短路径。

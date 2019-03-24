@@ -13,8 +13,8 @@ WebGL 学习小组整理的入门资料
 和这些代码配套的，是相应例子的讲解文档。当然，要入门 WebGL，你也许仍然需要一份经典教材，但我们十分相信，这里的内容能帮助你显著地改善入门这一领域时的心情。示例包括：
 
 * [绘制三角形](./examples/triangle)
-* 绘制纹理
 * [绘制立方体](./examples/cube)
+* [绘制纹理](./examples/texture)
 * [实现基础光照](./examples/lighting)
 * [实现冯氏光照](./examples/phong)
 * 实现图像滤镜
@@ -37,6 +37,9 @@ npm i -g http-server && http-server .
 ``` bash
 # 从三角形到立方体
 git diff --no-index ./examples/triangle ./examples/cube
+
+# 从立方体到纹理
+git diff --no-index ./examples/cube ./examples/texture
 
 # 从立方体到基础光照
 git diff --no-index ./examples/cube ./examples/lighting

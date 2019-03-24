@@ -26,7 +26,7 @@ WebGL 学习小组整理的入门资料
 [Online Demo](https://doodlewind.github.io/webgl-seminar/examples)
 
 ``` bash
-npm i http-server && http-server .
+npm i -g http-server && http-server .
 ```
 
 在 docs 目录下则包含了每个示例对应的注释资料。

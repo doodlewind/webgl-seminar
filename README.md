@@ -17,7 +17,7 @@ WebGL 学习小组整理的入门资料
 * [绘制纹理](./examples/texture)
 * [实现基础光照](./examples/lighting)
 * [实现冯氏光照](./examples/phong)
-* 实现图像滤镜
+* [实现图像滤镜](./examples/image-filter)
 * 使用帧缓冲区
 
 
@@ -46,6 +46,9 @@ git diff --no-index ./examples/cube ./examples/lighting
 
 # 从基础光照到冯氏光照
 git diff --no-index ./examples/lighting ./examples/phong
+
+# 从纹理绘制到图像滤镜
+git diff --no-index ./examples/texture ./examples/image-filter
 ```
 
 我们对代码的一致性有很高的要求，故而你完全可以将这样的 diff 作为从学习 A 过渡到学习 B 的时候，没有冗余的最短路径。

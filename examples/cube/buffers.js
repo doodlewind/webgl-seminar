@@ -1,4 +1,4 @@
-export const initBuffers = gl => {
+export const getCubeData = () => {
   const positions = [
     // Front face
     -1.0, -1.0, 1.0,
@@ -36,9 +36,6 @@ export const initBuffers = gl => {
     -1.0, 1.0, 1.0,
     -1.0, 1.0, -1.0
   ]
-  const positionBuffer = gl.createBuffer()
-  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
 
   const faceColors = [
     [1.0, 1.0, 1.0, 1.0], // White
@@ -54,12 +51,6 @@ export const initBuffers = gl => {
     const c = faceColors[i]
     colors = colors.concat(c, c, c, c)
   }
-  const colorBuffer = gl.createBuffer()
-  gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer)
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW)
-
-  const indexBuffer = gl.createBuffer()
-  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer)
 
   const indices = [
     0, 1, 2, 0, 2, 3, // Front
@@ -70,6 +61,39 @@ export const initBuffers = gl => {
     20, 21, 22, 20, 22, 23 // Left
   ]
 
+  return { positions, colors, indices }
+}
+
+export const getPlaneData = () => {
+  const positions = [
+    -3.0, -3.0, -2.0,
+    3.0, -3.0, -2.0,
+    3.0, 3.0, -2.0,
+    -3.0, 3.0, -2.0
+  ]
+
+  const color = [0.8, 0.8, 0.8, 1.0]
+  const colors = [...color, ...color, ...color, ...color]
+
+  const indices = [0, 1, 2, 0, 2, 3]
+
+  return { positions, colors, indices }
+}
+
+export const initBuffers = (gl, dataGetter) => {
+  const { positions, colors, indices } = dataGetter()
+
+  const positionBuffer = gl.createBuffer()
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW)
+
+  const colorBuffer = gl.createBuffer()
+  gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer)
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW)
+
+  const indexBuffer = gl.createBuffer()
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer)
+
   gl.bufferData(
     gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW
   )
@@ -77,6 +101,7 @@ export const initBuffers = gl => {
   return {
     position: positionBuffer,
     color: colorBuffer,
-    indices: indexBuffer
+    indices: indexBuffer,
+    length: indices.length
   }
 }

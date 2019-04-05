@@ -4,13 +4,14 @@ const vertexShader = `
 attribute vec4 pos;
 attribute vec4 color;
 
-uniform mat4 modelViewMat;
+uniform mat4 modelMat;
+uniform mat4 viewMat;
 uniform mat4 projectionMat;
 
 varying highp vec4 vColor;
 
 void main() {
-  gl_Position = projectionMat * modelViewMat * pos;
+  gl_Position = projectionMat * viewMat * modelMat * pos;
   vColor = color;
 }
 `
@@ -32,8 +33,9 @@ export const initProgramInfo = gl => {
       color: gl.getAttribLocation(program, 'color')
     },
     uniformLocations: {
-      projectionMat: gl.getUniformLocation(program, 'projectionMat'),
-      modelViewMat: gl.getUniformLocation(program, 'modelViewMat')
+      modelMat: gl.getUniformLocation(program, 'modelMat'),
+      viewMat: gl.getUniformLocation(program, 'viewMat'),
+      projectionMat: gl.getUniformLocation(program, 'projectionMat')
     }
   }
 }
